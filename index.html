@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Turbo & Supercharger Install Guide</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #f2f2f2;
+padding: 30px;
+max-width: 900px;
+margin: auto;
+}
+
+h1, h2 {
+color: #2c3e50;
+}
+
+input, button {
+margin: 10px 5px;
+padding: 10px;
+font-size: 16px;
+}
+
+.output {
+background: #ffffff;
+padding: 20px;
+border-radius: 6px;
+border: 1px solid #ccc;
+margin-top: 20px;
+}
+
+a {
+color: #2980b9;
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+.print-btn {
+background-color: #27ae60;
+color: white;
+border: none;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>Turbo & Supercharger Guide</h1>
+
+<p>Enter your car's make and model for better links:</p>
+<input type="text" id="carModel" placeholder="e.g. Honda Civic 2010">
+
+<br>
+<button onclick="showTurbo()">Show Turbo Guide</button>
+<button onclick="showSuper()">Show Supercharger Guide</button>
+<button class="print-btn" onclick="window.print()">🖨️ Print This Guide</button>
+
+<div class="output" id="guide"></div>
+
+<script>
+function getModelLinks(baseURL) {
+const car = document.getElementById("carModel").value.trim();
+return car ? `${baseURL}?q=${encodeURIComponent(car)}` : baseURL;
+}
+
+function showTurbo() {
+const turboLink = getModelLinks("https://www.amazon.com/s?k=turbo+kit");
+document.getElementById("guide").innerHTML = `
+<h2>Turbocharger Installation Guide</h2>
+<h3>🔧 Tools Needed</h3>
+<ul>
+<li>Socket & Torque Wrenches</li>
+<li>Jack stands or lift</li>
+<li>Intercooler piping tools</li>
+<li>Oil line fittings</li>
+</ul>
+
+<h3>🧩 Parts</h3>
+<ul>
+<li>Turbocharger Kit</li>
+<li>Intercooler</li>
+<li>Blow-off Valve</li>
+<li>Oil Feed/Return Lines</li>
+<li>ECU Tuner or Reflash Kit</li>
+</ul>
+
+<h3>🛒 Buy Parts</h3>
+<ul>
+<li><a href="${turboLink}" target="_blank">Amazon Turbo Kits (Suggested for your car)</a></li>
+<li><a href="https://www.summitracing.com/search/brand/summit-racing/turbochargers" target="_blank">Summit Racing</a></li>
+<li><a href="https://www.ebay.com/sch/i.html?_nkw=turbo+kit" target="_blank">eBay Turbo Kits</a></li>
+</ul>
+
+<h3>🎬 Watch How-To Video</h3>
+<p><a href="https://www.youtube.com/watch?v=oh2r6oqZVBM" target="_blank">Turbocharger Install Tutorial on YouTube</a></p>
+
+<h3>🛠️ Steps</h3>
+<ol>
+<li>Disconnect battery and safely raise the car.</li>
+<li>Remove intake and exhaust headers.</li>
+<li>Install turbo manifold and turbo.</li>
+<li>Connect oil lines.</li>
+<li>Install intercooler & piping.</li>
+<li>Reprogram ECU/tuner.</li>
+<li>Test drive and monitor boost.</li>
+</ol>
+`;
+}
+
+function showSuper() {
+const superLink = getModelLinks("https://www.amazon.com/s?k=supercharger+kit");
+document.getElementById("guide").innerHTML = `
+<h2>Supercharger Installation Guide</h2>
+<h3>🔧 Tools Needed</h3>
+<ul>
+<li>Socket Set & Torque Wrench</li>
+<li>Belt Tension Tool</li>
+<li>Drill and bits</li>
+<li>Fuel Injector Puller</li>
+</ul>
+
+<h3>🧩 Parts</h3>
+<ul>
+<li>Supercharger Kit</li>
+<li>Mounting Brackets</li>
+<li>High-Flow Injectors</li>
+<li>Drive Belt</li>
+<li>ECU Tuning Module</li>
+</ul>
+
+<h3>🛒 Buy Parts</h3>
+<ul>
+<li><a href="${superLink}" target="_blank">Amazon Superchargers (Suggested for your car)</a></li>
+<li><a href="https://www.vortechsuperchargers.com/" target="_blank">Vortech Superchargers</a></li>
+<li><a href="https://www.jegs.com/p/Edelbrock/Edelbrock-E-Force-Supercharger-Kits/1209970/10002/-1" target="_blank">JEGS Supercharger Kits</a></li>
+</ul>
+
+<h3>🎬 Watch How-To Video</h3>
+<p><a href="https://www.youtube.com/watch?v=Gx6ZKV2gEdE" target="_blank">Supercharger Install Tutorial on YouTube</a></p>
+
+<h3>🛠️ Steps</h3>
+<ol>
+<li>Disconnect battery and remove intake system.</li>
+<li>Install supercharger brackets.</li>
+<li>Mount the supercharger and belt.</li>
+<li>Install fuel upgrades.</li>
+<li>Connect piping and air filter.</li>
+<li>Tune ECU.</li>
+<li>Start and test.</li>
+</ol>
+`;
+}
+</script>
+
+</body>
+</html>
